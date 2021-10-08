@@ -28,7 +28,7 @@ body {
   }
   
   .topnav a.active {
-    background-color: #e45353;
+    background-color: #ff0000;
     color: rgb(0, 0, 0);
   }
   
@@ -82,4 +82,31 @@ body {
   
   a:hover, a:active {
     background-color: red;
+  }
+
+  input {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  label {
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+    font-size: 50;
+    color: white;
+  }
+  .button {
+    background-color: black;
+    border: none;
+    color:red;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
   }

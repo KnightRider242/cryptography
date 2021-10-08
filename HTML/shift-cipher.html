@@ -16,8 +16,8 @@
     </div>
 
     <div class="topnav" id="myTopnav">
-        <a href="../index.html" class="active">Home</a>
-        <a href="shift-cipher.html">Shift Cipher</a>
+        <a href="../index.html" >Home</a>
+        <a href="shift-cipher.html" class="active">Shift Cipher</a>
         <a href="substitution-cipher.html">Substitution Cipher</a>
         <a href="affine-cipher.html">Affine Cipher</a>
         <a href="hill-cipher.html">Hill Cipher</a>
@@ -26,8 +26,28 @@
           <i class="fa fa-bars"></i>
         </a>
     </div>
-
     <div style="padding-left:16px">
+      <p><h3>About shift-cipher</h3>
+        <br>
+        Shift cipher is one of the easiest cryptosystem. It has a 26 possible keys. The Encryption Function is defined as "ek(X) = (X+k) mod 26" and the decryption function is defined as "dk(Y) = (Y-K) mod 26".
+        <br>
+        This cryptosystem is not secure. As it has only 26 possible keys, it can be broken down using exhaustive search(brute force). The cipher-text attack model can be used to crack the cryptosystem.
+    </p>
+    </div>
+    <div style="padding-left:16px">
+      <form>
+        <label>Input Data:</label>
+        <input  onClick="this.select();" type="text" id="in">
+        <br>
+        <label>Key:</label>
+        <input onClick="this.select();" type="text" id="key" value ="Use 3 for Caesar's Cipher">
+        <br>
+        <label>Output Data:</label>
+        <input onClick="this.select();" type="text" id="out">
+        <br>
+        <button class="button">Encrypt</button>
+        <button class="button">Decrypt</button>
+      </form>
     </div>
 
     <div class="footer">
