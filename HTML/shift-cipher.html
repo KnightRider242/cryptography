@@ -40,12 +40,12 @@
         <input  onClick="this.select();" type="text" id="in">
         <br>
         <label>Key:</label>
-        <input onClick="this.select();" type="text" id="key" value ="Use 3 for Caesar's Cipher">
+        <input onClick="this.select();" type="number" id="key" value =3 >
         <br>
         <label>Output Data:</label>
-        <input onClick="this.select();" type="text" id="out">
+        <input onClick="this.select();" type="text" id="out" disabled="disabled" >
         <br>
-        <button class="button">Encrypt</button>
+        <button class="button" onclick="shiftCipher()">Encrypt</button>
         <button class="button">Decrypt</button>
       </form>
     </div>
@@ -66,6 +66,6 @@
           }
         }
     </script>
-    
+    <script src="../js/shift.js"></script>
 </body>
 </html>
