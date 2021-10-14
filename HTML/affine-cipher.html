@@ -28,6 +28,25 @@
     </div>
 
     <div style="padding-left:16px">
+      <form>
+        <hr>
+        <label>A:</label>
+        <input onClick="this.select();" type="number" id="a" placeholder="Input a" >
+        <br>
+        <label>B:</label>
+        <input onClick="this.select();" type="number" id="b" placeholder="Input b" >
+        <br>
+        <label>Input Data:</label>
+        <input  onClick="this.select();" type="text" id="in" placeholder="Text: [A-Z]">
+        <br>
+        <label>Output Data:</label>
+        <input onClick="this.select();" type="text" id="out" value="" readonly style="background-color: black; color: red;">
+        <br>
+        <input type="button" class ="button"value="Encryption" onclick="encrypt()"><br>
+        <input type="button" class ="button"value="Decryption" onclick="decrypt()">
+        <hr>
+      </form>
+      <!--<p id="demo">"Temporary Area subject to change"</p>-->
     </div>
 
     <div class="footer">
@@ -46,6 +65,7 @@
           }
         }
     </script>
+    <script src="../js/affine.js"></script>
     
 </body>
 </html>
