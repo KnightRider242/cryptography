@@ -36,18 +36,19 @@
     </div>
     <div style="padding-left:16px">
       <form>
+        <hr>
         <label>Input Data:</label>
-        <input  onClick="this.select();" type="text" id="in">
+        <input  onClick="this.select();" type="text" id="in" placeholder="Input plaintext/ciphertext to encrypt/decrypt">
         <br>
         <label>Key:</label>
-        <input onClick="this.select();" type="number" id="key" value =3 >
+        <input onClick="this.select();" type="number" id="key" placeholder="Use 3 for Ceaser's Cipher. Use negative value for decryption">
         <br>
         <label>Output Data:</label>
-        <input onClick="this.select();" type="text" id="out" disabled="disabled" >
+        <input onClick="this.select();" type="text" id="out" value="" readonly style="background-color: black; color: red;">
         <br>
-        <button class="button" onclick="shiftCipher()">Encrypt</button>
-        <button class="button">Decrypt</button>
+        <hr>
       </form>
+      <!--<p id="demo">"Temporary Area subject to change"</p>-->
     </div>
 
     <div class="footer">

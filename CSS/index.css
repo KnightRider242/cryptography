@@ -59,7 +59,7 @@ body {
   }
 
   .footer {
-    position: relative;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -84,8 +84,14 @@ body {
     background-color: red;
   }
 
-  input {
+  input[type=text]{
     width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=number]{
+    width: 23%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
