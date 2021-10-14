@@ -2,49 +2,37 @@ let originalInput = document.querySelector("#in");
 let shiftInput = document.querySelector("#key");
 let encryptedInput = document.querySelector("#out");
 
-//let originalMessage = "abcdefg";
+//let text = "abcdefg";
 //let out = document.getElementById("demo");
 
-let originalMessage = originalInput.value;
+let text = originalInput.value;
 
 originalInput.addEventListener("input", characterEntered, false);
 
 function characterEntered(e) {
-  // Ensure we only deal with lowercase letters
-  originalMessage = e.target.value;
-  originalMessage = originalMessage.toLowerCase();
-  originalMessage = originalMessage.replace(/[^a-z]/, '');
-
-  e.target.value = originalMessage;
-
-  // Let's get the party started!
+  text = e.target.value;
+  e.target.value = text;
   startEncryption();
 }
 
 function startEncryption() {
-    let encryptedMessage = "";
-    let shift = shiftInput.value ? Number(shiftInput.value) : 0;
-    for (letter of originalMessage) {
-        encryptedMessage += shiftLetter(letter, shift);
-  }
-  //console.log(encryptedMessage);
-  encryptedInput.value = encryptedMessage;
-  //out.innerHTML = encryptedMessage;
-}
-//startEncryption();
-
-function shiftLetter(letter, shift) {
-    let newLetter = "";
-    let letterCode = letter.charCodeAt(0);
-    let newLetterCode = letterCode + shift;
-    if (newLetterCode < 97) {
-        // If new letter goes below "a" aka character code 97
-        newLetterCode += 26;
-    } 
-    else if (newLetterCode > 122) {
-        // If new letter goes past "z" aka character code 122
-        newLetterCode -= 26;
+    let s = shiftInput.value ? Number(shiftInput.value) : 0;
+    let result="";
+    for (let i = 0; i < text.length; i++)
+    {
+        let char = text[i];
+        if (char.toUpperCase(text[i]))
+        {
+            let ch =  String.fromCharCode((char.charCodeAt(0) + s-65) % 26 + 65);
+            result += ch;
+        }
+        else
+        {
+            let ch = String.fromCharCode((char.charCodeAt(0) + s-97) % 26 + 97);
+            result += ch;
+        }
     }
-    newLetter = String.fromCharCode(newLetterCode);
-    return newLetter;
+  console.log(result);
+  encryptedInput.value = result;
+  //out.innerHTML = encryptedMessage;
 }

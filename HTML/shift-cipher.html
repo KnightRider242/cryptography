@@ -37,11 +37,12 @@
     <div style="padding-left:16px">
       <form>
         <hr>
-        <label>Input Data:</label>
-        <input  onClick="this.select();" type="text" id="in" placeholder="Input plaintext/ciphertext to encrypt/decrypt">
-        <br>
+        <p style="color: white;">For Ceasers Cipher Use Key = 3</p>
         <label>Key:</label>
-        <input onClick="this.select();" type="number" id="key" placeholder="Use 3 for Ceaser's Cipher. Use negative value for decryption">
+        <input onClick="this.select();" type="number" id="key" placeholder="Key: [0-25]" >
+        <br>
+        <label>Input Data:</label>
+        <input  onClick="this.select();" type="text" id="in" placeholder="Text: [A-Z]">
         <br>
         <label>Output Data:</label>
         <input onClick="this.select();" type="text" id="out" value="" readonly style="background-color: black; color: red;">
