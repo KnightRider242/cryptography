@@ -30,6 +30,14 @@
     <div style="padding-left:16px">
       <form>
         <hr>
+        
+        <input type="radio" id="enc" name="select" value="Encrypt" value="" checked>Encrypt
+        <br>
+        <input type="radio" id="dec" name="select" value="Decrypt">Decrypt
+        
+        
+        
+        <br>
         <label>A:</label>
         <input onClick="this.select();" type="number" id="a" placeholder="Input a" >
         <br>
@@ -41,9 +49,7 @@
         <br>
         <label>Output Data:</label>
         <input onClick="this.select();" type="text" id="out" value="" readonly style="background-color: black; color: red;">
-        <br>
-        <input type="button" class ="button"value="Encryption" onclick="encrypt()"><br>
-        <input type="button" class ="button"value="Decryption" onclick="decrypt()">
+        
         <hr>
       </form>
       <!--<p id="demo">"Temporary Area subject to change"</p>-->

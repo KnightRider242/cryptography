@@ -1,10 +1,39 @@
+/*
 let text = "MAGIC";
 let cipher="JDTHR";
 let a = 7;
 let b = 3;
+*/
+let originalInput = document.querySelector("#in");
+let aInput = document.querySelector("#a");
+let bInput = document.querySelector("#b");
+let encryptedInput = document.querySelector("#out");
+
+let text = originalInput.value;
+//let cipher = originalInput.value;
+
+originalInput.addEventListener("input", characterEntered, false);
+function characterEntered(e) 
+{
+    text = e.target.value;
+    e.target.value = text;
+    if (document.getElementById("enc").checked) {
+        //console.log("encrypt")
+        encrypt();
+    }
+    else if (document.getElementById("dec").checked) {
+        //console.log("decrypt")
+        decrypt();
+    }
+    
+}
+  
+
 function encrypt()
 {
     let result ="";
+    let a = aInput.value? Number(aInput.value) : 0;
+    let b = bInput.value? Number(bInput.value) : 0;
     for (let i = 0; i < text.length; i++) 
     {
         let char = text[i];
@@ -20,6 +49,7 @@ function encrypt()
         }
     }
     console.log(result)
+    encryptedInput.value = result;
     //cipher = result;
 }
 
@@ -27,7 +57,10 @@ function encrypt()
 //console.log(cipher)
 function decrypt() 
 {
-    let decrypted=""
+    //console.log(text);
+    let decrypted="";
+    let a = aInput.value? Number(aInput.value) : 0;
+    let b = bInput.value? Number(bInput.value) : 0;
     let a_inv = 0;
     let flag = 0;
     //Find a^-1 (the multiplicative inverse of a
@@ -43,10 +76,10 @@ function decrypt()
         }
         
     }
-    for (let i = 0; i < cipher.length; i++) 
+    for (let i = 0; i < text.length; i++) 
     {
-        let char = cipher[i];
-        if (char.toUpperCase(cipher[i]))
+        let char = text[i];
+        if (char.toUpperCase(text[i]))
         {
             let c =  String.fromCharCode(((a_inv*((char.charCodeAt(0) - 65)-b)) % 26) + 65);
             decrypted += c;
@@ -58,4 +91,5 @@ function decrypt()
         }
     }
     console.log(decrypted);
+    encryptedInput.value = decrypted;
 }
