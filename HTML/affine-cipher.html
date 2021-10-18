@@ -26,15 +26,68 @@
           <i class="fa fa-bars"></i>
         </a>
     </div>
+    <div style="padding-left:16px">
+      <p><h3>About Affine-cipher</h3>
+        <br>
+        The Affine cipher is a type of monoalphabetic substitution cipher, wherein each letter in an alphabet is mapped to its numeric equivalent, encrypted using a simple mathematical function, and converted back to a letter.
+        <br> 
+        The formula used means that each letter encrypts to one other letter, and back again, meaning the cipher is essentially a standard substitution cipher with a rule governing which letter goes to which. 
+        <br>
+        The ‘key’ for the Affine cipher consists of 2 numbers, we’ll call them a and b. The following discussion assumes the use of a 26 character alphabet (m = 26). a should be chosen to be relatively prime to m (i.e. a should have no factors in common with m). 
+        <br>
+        Affine-cipher has 312 possibe keys. Its found out by 26 * euler's phi(26). The attack method used to cryptanalyze the cryptosystem is Exhaustive search or frequency analysis. <br>
+        The attack model used is cipher-text only. The cryptosystem is not secure. 
+        <h4>Encryption:</h4>
+        <code>
+          E ( x ) = ( a x + b ) mod m 
+          modulus m: size of the alphabet <br>
+          a and b: key of the cipher. <br>
+          a must be chosen such that a and m are coprime.
+        </code>
+        <br>
+        <h4>Decryption:</h4>
+        <code>
+          D ( x ) = a^-1 ( x - b ) mod m <br>
+          a^-1 : modular multiplicative inverse of a modulo m. <br> i.e., it satisfies the equation
+          1 = a a^-1 mod m .
+        </code>
+        <br>
+    </p>
+    </div>
 
     <div style="padding-left:16px">
+      <form>
+        <hr>
+        
+        <input type="radio" id="enc" name="select" value="Encrypt" value="" checked>Encrypt
+        <br>
+        <input type="radio" id="dec" name="select" value="Decrypt">Decrypt
+        
+        
+        
+        <br>
+        <label>A:</label>
+        <input onClick="this.select();" type="number" id="a" placeholder="Input a" >
+        <br>
+        <label>B:</label>
+        <input onClick="this.select();" type="number" id="b" placeholder="Input b" >
+        <br>
+        <label>Input Data:</label>
+        <input  onClick="this.select();" type="text" id="in" placeholder="Text: [A-Z]">
+        <br>
+        <label>Output Data:</label>
+        <input onClick="this.select();" type="text" id="out" value="" readonly style="background-color: black; color: red;">
+        
+        <hr>
+      </form>
+      <!--<p id="demo">"Temporary Area subject to change"</p>-->
     </div>
 
     <div class="footer">
-        <a class="fa fa-github-square"   href="https://github.com/KnightRider242" style="font-size:28px" target="_blank"> @KnightRider242</a><br>
-        <a class="fa fa-github-square"   href="karthik" style="font-size:28px" target="_blank"> @karthik</a><br>
-        <a class="fa fa-github-square"   href="akshay" style="font-size:28px" target="_blank"> @askahy</a><br>
-        </div>
+        <a class="fa fa-github-square"   href="https://github.com/KnightRider242" style="font-size:22px" target="_blank"> @KnightRider242</a><br>
+        <a class="fa fa-github-square"   href="karthik" style="font-size:22px" target="_blank"> @karthik</a><br>
+        <a class="fa fa-github-square"   href="akshay" style="font-size:22px" target="_blank"> @askahy</a><br>
+    </div>
 
     <script>
         function myFunction() {
@@ -46,6 +99,7 @@
           }
         }
     </script>
+    <script src="../js/affine.js"></script>
     
 </body>
 </html>

@@ -29,32 +29,50 @@
     <div style="padding-left:16px">
       <p><h3>About shift-cipher</h3>
         <br>
-        Shift cipher is one of the easiest cryptosystem. It has a 26 possible keys. The Encryption Function is defined as "ek(X) = (X+k) mod 26" and the decryption function is defined as "dk(Y) = (Y-K) mod 26".
+        Shift cipher is one of the easiest cryptosystem. It has a 26 possible keys.
         <br>
         This cryptosystem is not secure. As it has only 26 possible keys, it can be broken down using exhaustive search(brute force). The cipher-text attack model can be used to crack the cryptosystem.
+        <br>
+        <h4>Encryption:</h4>
+        <code>
+          E(X) = (X+k) mod 26 <br>
+          X : plaintext character <br>
+          k : key of the cipher. <br>
+
+        </code>
+        <br>
+        <h4>Decryption:</h4>
+        <code>
+          D(Y) = (Y-K) mod 26 <br>
+          Y: cipher text character <br>
+          k: key of the cipher. <br>
+        </code>
+        <br>
     </p>
     </div>
     <div style="padding-left:16px">
       <form>
-        <label>Input Data:</label>
-        <input  onClick="this.select();" type="text" id="in">
-        <br>
+        <hr>
+        <p style="color: white;">For Ceasers Cipher Use Key = 3</p>
         <label>Key:</label>
-        <input onClick="this.select();" type="number" id="key" value =3 >
+        <input onClick="this.select();" type="number" id="key" placeholder="Key: [0-25]" >
+        <br>
+        <label>Input Data:</label>
+        <input  onClick="this.select();" type="text" id="in" placeholder="Text: [A-Z]">
         <br>
         <label>Output Data:</label>
-        <input onClick="this.select();" type="text" id="out" disabled="disabled" >
+        <input onClick="this.select();" type="text" id="out" value="" readonly style="background-color: black; color: red;">
         <br>
-        <button class="button" onclick="shiftCipher()">Encrypt</button>
-        <button class="button">Decrypt</button>
+        <hr>
       </form>
+      <!--<p id="demo">"Temporary Area subject to change"</p>-->
     </div>
 
     <div class="footer">
-        <a class="fa fa-github-square"   href="https://github.com/KnightRider242" style="font-size:28px" target="_blank"> @KnightRider242</a><br>
-        <a class="fa fa-github-square"   href="karthik" style="font-size:28px" target="_blank"> @karthik</a><br>
-        <a class="fa fa-github-square"   href="akshay" style="font-size:28px" target="_blank"> @askahy</a><br>
-        </div>
+        <a class="fa fa-github-square"   href="https://github.com/KnightRider242" style="font-size:22px" target="_blank"> @KnightRider242</a><br>
+        <a class="fa fa-github-square"   href="karthik" style="font-size:22px" target="_blank"> @karthik</a><br>
+        <a class="fa fa-github-square"   href="akshay" style="font-size:22px" target="_blank"> @askahy</a><br>
+      </div>
 
     <script>
         function myFunction() {
