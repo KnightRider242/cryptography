@@ -1,51 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Hill Cipher</title>
+  <script src="../js/hill.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.5.1/math.js"
+    integrity="sha512-AfRcJIj922x/jSJpQLnry0DYIBg6EGCtwk/MiQ6QvDlzb7kNFxH8EdqXLkaXXY3YHQS9FrSb8H7LzuLn0CZQ1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Hill Cipher</title>
 </head>
+
 <body>
-    <div style="padding-left:16px" id = "Head">
-        <center><img src="../Images/logo.png" alt=""></center>
-        <center><h1>Cryptography 19CSE331</h1></center>
-        
-    </div>
+  <div style="padding-left:16px" id="Head">
+    <center><img src="../Images/logo.png" alt=""></center>
+    <center>
+      <h1>Cryptography 19CSE331</h1>
+    </center>
 
-    <div class="topnav" id="myTopnav">
-        <a href="../index.html">Home</a>
-        <a href="shift-cipher.html">Shift Cipher</a>
-        <a href="substitution-cipher.html">Substitution Cipher</a>
-        <a href="affine-cipher.html">Affine Cipher</a>
-        <a href="hill-cipher.html" class="active">Hill Cipher</a>
-        <a href="permutation-cipher.html">Permutation Cipher</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-        </a>
-    </div>
+  </div>
 
-    <div style="padding-left:16px">
-    </div>
+  <div class="topnav" id="myTopnav">
+    <a href="../index.html">Home</a>
+    <a href="shift-cipher.html">Shift Cipher</a>
+    <a href="substitution-cipher.html">Substitution Cipher</a>
+    <a href="affine-cipher.html">Affine Cipher</a>
+    <a href="hill-cipher.html" class="active">Hill Cipher</a>
+    <a href="permutation-cipher.html">Permutation Cipher</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
 
-    <div class="footer">
-        <a class="fa fa-github-square"   href="https://github.com/KnightRider242" style="font-size:22px" target="_blank"> @KnightRider242</a><br>
-        <a class="fa fa-github-square"   href="karthik" style="font-size:22px" target="_blank"> @karthik</a><br>
-        <a class="fa fa-github-square"   href="akshay" style="font-size:22px" target="_blank"> @askahy</a><br>
-        </div>
+  <div style="padding-left:16px">
+    <h1>Hill Cipher</h1>
+    <p>
+      In classical cryptography, the Hill cipher
+      is a polygraphic substitution cipher based on
+      linear algebra.<br> Invented by Lester S. Hill
+      in 1929, it was the first polygraphic cipher
+      in which it was practical (though barely) to
+      operate on more than three symbols at once.
+    </p>
+    <p>
+      <b>Encryption and Decryption</b><br>
+      Let 𝑚 ≥ 2 be an integer. Let P=C=K=(ℤ<sub>26</sub>)<sup>𝑚</sup> and let K = { 𝑚 × 𝑚 𝑖𝑛𝑣𝑒𝑟𝑡𝑖𝑏𝑙𝑒
+      𝑚𝑎𝑡𝑟𝑖𝑐𝑒𝑠 𝑜𝑣𝑒𝑟 ℤ<sub>26</sub> } . <br>
+      For a key k, we define <br>
+      𝑒<sub>𝑘</sub>(𝑥) = 𝑥𝑘 and <br>
+      𝑑<sub>𝑘</sub>(𝑦) = 𝑦𝑘<sup>−1</sup> <br>
+      where all operations are performed in ℤ<sub>26</sub>
+    </p>
+  </div>
+  <div style="padding-left:16px">
+    <h2>Hill Cipher Implementation</h2>
+    <label>key dimension:</label>
+    <input type="number" id="keydim">
+    <br>
+    <label>key matrix:</label>
+    <input type="integer" name="keymat" size="1">
+    <input type="integer" name="keymat" size="1">
+    <input type="integer" name="keymat" size="1">
+    <input type="integer" name="keymat" size="1">
+    <input type="integer" name="keymat" size="1">
+    <input type="integer" name="keymat" size="1">
+    <input type="integer" name="keymat" size="1">
+    <input type="integer" name="keymat" size="1">
+    <input type="integer" name="keymat" size="1">
+    <br>
+    <label>inverse key matrix:</label>
+    <input type="integer" name="keyinv" size="1">
+    <input type="integer" name="keyinv" size="1">
+    <input type="integer" name="keyinv" size="1">
+    <input type="integer" name="keyinv" size="1">
+    <input type="integer" name="keyinv" size="1">
+    <input type="integer" name="keyinv" size="1">
+    <input type="integer" name="keyinv" size="1">
+    <input type="integer" name="keyinv" size="1">
+    <input type="integer" name="keyinv" size="1">
+    <br>
+    <label>Plaintext:</label>
+    <input type="text" id="plain">
+    <br>
+    <input type="button" value="Encrypt" onclick="hill_encrypt()" style="margin-left: 250px;">
+    <input type="button" value="Decrypt" onclick="hill_decrypt()" style="margin-left: 100px;">
+    <br>
+    <label>Ciphertext</label>
+    <input type="text" id="cipher">
+  </div>
 
-    <script>
-        function myFunction() {
-          var x = document.getElementById("myTopnav");
-          if (x.className === "topnav") {
-            x.className += " responsive";
-          } else {
-            x.className = "topnav";
-          }
-        }
-    </script>
-    
+  <div class="footer">
+    <a class="fa fa-github-square" href="https://github.com/KnightRider242" style="font-size:22px" target="_blank">
+      @KnightRider242</a><br>
+    <a class="fa fa-github-square" href="karthik" style="font-size:22px" target="_blank"> @karthik</a><br>
+    <a class="fa fa-github-square" href="https://github.com/Akshay3960" style="font-size:22px" target="_blank">
+      @Akshay3960</a><br>
+  </div>
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
 </body>
+
 </html>

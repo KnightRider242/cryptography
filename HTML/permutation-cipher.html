@@ -11,44 +11,97 @@
 </head>
 
 <body>
-    <div style="padding-left:16px" id = "Head">
-        <center><img src="../Images/logo.png" alt=""></center>
-        <center><h1>Cryptography 19CSE331</h1></center>
-        
-    </div>
+  <div style="padding-left:16px" id="Head">
+    <center><img src="../Images/logo.png" alt=""></center>
+    <center>
+      <h1>Cryptography 19CSE331</h1>
+    </center>
 
-    <div class="topnav" id="myTopnav">
-        <a href="../index.html" >Home</a>
-        <a href="shift-cipher.html">Shift Cipher</a>
-        <a href="substitution-cipher.html">Substitution Cipher</a>
-        <a href="affine-cipher.html" >Affine Cipher</a>
-        <a href="hill-cipher.html">Hill Cipher</a>
-        <a href="permutation-cipher.html" class="active">Permutation Cipher</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-        </a>
-    </div>
+  </div>
 
-    <div style="padding-left:16px">
-    </div>
+  <div class="topnav" id="myTopnav">
+    <a href="../index.html">Home</a>
+    <a href="shift-cipher.html">Shift Cipher</a>
+    <a href="substitution-cipher.html">Substitution Cipher</a>
+    <a href="affine-cipher.html">Affine Cipher</a>
+    <a href="hill-cipher.html">Hill Cipher</a>
+    <a href="permutation-cipher.html" class="active">Permutation Cipher</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
 
-    <div class="footer">
-        <a class="fa fa-github-square"   href="https://github.com/KnightRider242" style="font-size:22px" target="_blank"> @KnightRider242</a><br>
-        <a class="fa fa-github-square"   href="karthik" style="font-size:22px" target="_blank"> @karthik</a><br>
-        <a class="fa fa-github-square"   href="akshay" style="font-size:22px" target="_blank"> @askahy</a><br>
-        </div>
+  <div style="padding-left:16px">
+    <h1>Permutation Cipher</h1>
+    <p>
+      In classical cryptography,
+      a permutation cipher is a
+      transposition cipher in which
+      the key is a permutation.
+    </p>
+    <p>
+      To apply a cipher, a random
+      permutation of size e is generated
+      (the larger the value of e the more
+      secure the cipher).<br> The plaintext is
+      then broken into segments of size e
+      and the letters within that segment
+      are permuted according to this key.
+    </p>
+    <p>
+      In theory, any transposition cipher
+      can be viewed as a permutation cipher
+      where e is equal to the length of the
+      plaintext.<br> This is too cumbersome a
+      generalisation to use in actual
+      practice, however.
+    </p>
+    <p>
+      <b>Encryption and Decryption</b><br>
+      Let 𝑚 be a positive integer. Let P=C=(ℤ<sub>26</sub> )<sup>𝑚</sup> and let K consists
+      of all permutations of (1, 2, . . 𝑚) .<br>
+      For a key 𝜋 we define<br>
+      𝑒<sub>𝜋</sub> (𝑥<sub>1</sub> , 𝑥<sub>2</sub> , … 𝑥<sub>𝑚</sub>) = (𝑥<sub>𝜋(1)</sub> , 𝑥<sub>𝜋(2)</sub> ,
+      … 𝑥<sub>𝜋(𝑚)</sub>) and <br>
+      𝑑<sub>𝜋</sub> (𝑦<sub>1</sub> , 𝑦<sub>2</sub> , … 𝑦<sub>𝑚</sub>) = (𝑦<sub>𝜋<sup>−1</sup> (1)</sub> ,
+      𝑦<sub>𝜋<sup>−1</sup> (2)</sub> , … , 𝑦<sub>𝜋<sup>−1</sup> (𝑚)</sub>) <br>
+      where 𝜋<sup>−1</sup> is inverse permutationof 𝜋.
+    </p>
+  </div>
+  <div style="padding-left:16px">
+    <h2>Permutation Cipher Implementation</h2>
+    <label>key:</label>
+    <input type="text" id="key">
+    <br>
+    <label>Plaintext:</label>
+    <input type="text" id="plain">
+    <br>
+    <input type="button" value="Encrypt" onclick="permutation_encrypt()" style="margin-left: 250px;">
+    <input type="button" value="Decrypt" onclick="permutation_decrypt()" style="margin-left: 100px;">
+    <br>
+    <label>Ciphertext</label>
+    <input type="text" id="cipher">
+  </div>
 
-    <script>
-        function myFunction() {
-          var x = document.getElementById("myTopnav");
-          if (x.className === "topnav") {
-            x.className += " responsive";
-          } else {
-            x.className = "topnav";
-          }
-        }
-    </script>
-    
+  <div class="footer">
+    <a class="fa fa-github-square" href="https://github.com/KnightRider242" style="font-size:22px" target="_blank">
+      @KnightRider242</a><br>
+    <a class="fa fa-github-square" href="karthik" style="font-size:22px" target="_blank"> @karthik</a><br>
+    <a class="fa fa-github-square" href="https://github.com/Akshay3960" style="font-size:22px" target="_blank">
+      @Akshay3960</a><br>
+  </div>
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+  <script src="../js/permutation.js"></script>
 </body>
 
 </html>
