@@ -6,42 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../CSS/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Substitution Cipher</title>
+    <title>Vernam Cipher</title>
 </head>
 <body>
     <div style="padding-left:16px" id = "Head">
         <center><img src="../Images/logo.png" alt=""></center>
         <center><h1>Cryptography 19CSE331</h1></center>
+        
     </div>
 
     <div class="topnav" id="myTopnav">
         <a href="../index.html" >Home</a>
         <a href="shift-cipher.html">Shift Cipher</a>
-        <a href="substitution-cipher.html" class="active">Substitution Cipher</a>
+
+        <a href="substitution-cipher.html" >Substitution Cipher</a>
         <a href="affine-cipher.html">Affine Cipher</a>
         <a href="hill-cipher.html">Hill Cipher</a>
         <a href="permutation-cipher.html">Permutation Cipher</a>
-        <a href="vernam-cipher.html">Vernam Cipher</a>
+        <a href="vernam-cipher.html" class="active">Vernam Cipher</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars"></i>
         </a>
     </div>
 
     <div style="padding-left:16px">
-      <p><h3>About substitution-cipher</h3>
+      <p><h3>About Vernam-cipher</h3>
+        One Time Pad algorithm is also known as Vernam Cipher.
         <br>
-        In this cryptosystem units of the plaintext (generally single letters or pairs of letters of ordinary text) are replaced with other symbols or groups of symbols.
+        It is a method of encrypting alphabetic plain text. It is one of the Transposition techniques which converts plain text into ciphertext.
         <br>
-        This cryptosystem is not secure. The possible number of keys are 26!, it can be broken down using Frequency Analysis. The cipher-text attack model can be used to crack the cryptosystem.
+        In this mechanism, we assign a number to each character of the Plain-Text.
         <br>
         <h4>Encryption:</h4>
         <code>
-        For each permutation π ∈ K, The Encryption function is defined as 𝑒𝜋(x) = 𝜋(x)
+        For k ∈(ℤ2)^𝑛 we define 𝑒𝑘(x) = (𝑥1 ⊕ 𝑘1 , 𝑥2 ⊕ 𝑘2, … … , 𝑥𝑛 ⊕ 𝑘𝑛)
         </code>
         <br>
         <h4>Decryption:</h4>
         <code>
-        For each permutation π ∈ K, The Decryption function is defined as 𝑑𝜋(y) = 𝜋^−1(𝑥) where 𝜋^−1 is inverse permutation of 𝜋.
+        For k ∈(ℤ2)^𝑛 we define 𝑑𝑘(y) = (𝑦1 ⊕ 𝑘1, 𝑦2 ⊕ 𝑘2, … … , 𝑦𝑛 ⊕ 𝑘𝑛)
         </code>
         <br> 
     </p>
@@ -52,6 +55,9 @@
         <input type="radio" id="enc" name="select" value="Encrypt" value="" checked>Encrypt
         <br>
         <input type="radio" id="dec" name="select" value="Decrypt">Decrypt
+        <br>
+        <label>Key:</label>
+        <input  onClick="this.select();" type="text" id="key" placeholder="Text: [A-Z]">
         <br>
         <label>Input Data:</label>
         <input  onClick="this.select();" type="text" id="in" placeholder="Text: [A-Z]">
@@ -79,6 +85,6 @@
           }
         }
     </script>
-    <script src="../js/substitution.js"></script>
+    <script src="../js/vernam.js"></script>
 </body>
 </html>
