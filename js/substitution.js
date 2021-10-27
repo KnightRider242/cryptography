@@ -51,26 +51,6 @@ function decrypt()
         v: 'i', w: 'l', x: 'n',
         y: 'z', z: 'e'
     };
-    /*map1 = (function() {
-        let tmp = {};
-        var k;
-        // Populate the tmp variable
-        for(k in map1) {
-                if(!map1.hasOwnProperty(k)) continue;
-                tmp[map1[k]] = k;
-                cipher1+=tmp[map1[k]]
-            }
-        })
-    console.log(cipher1)
-    encryptedInput.value = cipher1;
-    return text.split('').filter(function(v) {
-        // Filter out characters that are not in our list
-        return tmp.hasOwnProperty(v.toLowerCase());
-    }).map(function(v) {
-        // Replace old character by new one
-        // And make it uppercase to make it look fancier
-        cipher2+=tmp[v.toLowerCase()].toUpperCase();
-    }).join('');*/
     for(i in map)
     {
         map[map[i]]=i
